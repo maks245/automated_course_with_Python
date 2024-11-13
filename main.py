@@ -1,6 +1,6 @@
 
-def hello():
-    print("Hello guys")
+def hello(name: str):
+    print(f"Hello {name}")
 
 
-hello()
+hello("Maks")
