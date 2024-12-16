@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+import time
 
 
 def get_driver():
@@ -16,10 +17,17 @@ def get_driver():
     return driver
 
 
+def clear_text(text):
+    """This function return average temperature from text"""
+    temperature = float(text.split(": ")[1])
+    return temperature
+
+
 def main():
     driver = get_driver()
-    element = driver.find_element(By.XPATH, "//*[@class='animated fadeIn mb-4']")
-    return element.text
+    time.sleep(3)
+    dynamic_element = driver.find_element(By.XPATH, "//*[@class='text-success']")
+    return clear_text(dynamic_element.text)
 
 
 print(main())
